@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Loja.Models.Seller>
+@{
+    ViewData["Title"] = "Sellers";
+}
+<p>@ViewData["Title"]</p>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create new</a>
+</p>
+
+<table class="table table-progress-bar-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseSalary)
+            </th>
+            <th>
+               
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaseSalary)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> | 
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> | 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

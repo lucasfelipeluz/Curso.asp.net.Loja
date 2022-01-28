@@ -1,0 +1,43 @@
+﻿@model Loja.Models.ViewModels.SellerFormViewModel;
+@{
+
+}
+<h1>Create</h1>
+<hr />
+
+<div class="rol">
+    <div class="col-md-4">
+
+        <form asp-action="CriandoRegistro">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Seller.Name" class="control-label">Name</label>
+                <input asp-for="Seller.Name" class="form-control" />
+                <span asp-validation-for="Seller.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.Email" class="control-label">Email</label>
+                <input asp-for="Seller.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.Birthday" class="control-label">BirtDate</label>
+                <input asp-for="Seller.Birthday" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.BaseSalary" class="control-label">BaseSalary</label>
+                <input asp-for="Seller.BaseSalary" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.DepartamentId" class="control-label"></label>
+                <select asp-for="Seller.DepartamentId" 
+                    asp-items="@(new SelectList(Model.Departaments,"Id", "Name"))" class="form-control">
+                </select>
+            </div>
+            <input type="submit" value="CriandoRegistro" class="btn btn-primary" />
+        </form>
+
+    </div>
+</div>
+@section Scripts {
+ @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
